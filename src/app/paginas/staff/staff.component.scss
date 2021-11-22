@@ -1,0 +1,30 @@
+#cont-banner {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#sec-personajes {
+  text-align: center;
+  margin: 2em 0;
+  padding: 1.5em .25em;
+
+  .sec-personajes-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5em;
+
+    .h3 {
+      margin: 0;
+      min-width: fit-content;
+      font-size: 1.9em;
+    }
+
+    #sec-personajes-select {
+      margin-left: .5em;
+      font-size: 1.25em;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  <h4 class="name">{{title}}</h4>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img class="avatar mat-elevation-z8" src="../../../assets/Hogwarts-Logo.png" />
+    <p class="designation">{{school}}</p>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" [routerLink]="['/']" href="#">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="['/staff']" href="#">
+      <mat-icon>person</mat-icon>
+      <span>Staff</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="['/students']" href="#">
+      <mat-icon>menu_book</mat-icon>
+      <span>Students</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="['/teachers']" href="#">
+      <mat-icon>supervisor_account</mat-icon>
+      <span>Teachers</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

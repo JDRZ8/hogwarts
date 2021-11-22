@@ -1,0 +1,12 @@
+<section id="sec-personajes">
+    <div class="sec-personajes-title">
+        <h3 class="h3">Conoce a nuestros personajes de la casa</h3>
+        <select name="houses" id="sec-personajes-select" (change)="mostrarPersonajes($event)">
+            <option value="gryffindor" selected>Gryffindor</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="ravenclaw">Ravenclaw</option>
+            <option value="slytherin">Slytherin</option>
+        </select>
+    </div>
+    <app-tabla [persona]="personajes"></app-tabla>
+</section>
