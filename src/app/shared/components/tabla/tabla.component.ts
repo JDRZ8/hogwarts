@@ -2,6 +2,7 @@ import { PEPInterface } from './../../../interfaces/data.interface';
 import { Component, AfterViewInit, ViewChild, ViewEncapsulation, Input, OnChanges } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
     selector: "app-tabla",
@@ -22,14 +23,18 @@ export class TablaComponent implements AfterViewInit, OnChanges {
     // Columnas que se muestran en las tablas de 'home'
     displayedColumns: string[] = ['image', 'name', 'patronus', 'age'];
 
+    pageSizes = [4,10,20];
+
     // Variable que las tablas usan de referencia para renderizar los datos
     dataSource = new MatTableDataSource<PEPInterface>(this.persona);
 
     // Habilita el ordenamiento de la tabla
     @ViewChild(MatSort) sort!: MatSort;
+    @ViewChild('paginator') paginator!: MatPaginator;
 
     ngAfterViewInit(): void {
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
     }
 
     // Detecta cambios en los valores que recibe del componente padre
